@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectEnergy x Coreimpact — Project Hub</title>
+  <link rel="icon" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ce-green: #00a651;
+      --ce-green-dark: #008c44;
+      --ce-yellow: #f7c948;
+      --ci-dark: #1a1a2e;
+      --ci-accent: #4a90d9;
+      --bg: #f8f9fb;
+      --card-bg: #ffffff;
+      --text: #2c3e50;
+      --text-muted: #6b7c93;
+      --border: #e8ecf1;
+      --radius: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-hover: 0 8px 32px rgba(0,166,81,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--ci-dark) 0%, #16213e 60%, var(--ce-green-dark) 100%);
+      color: white;
+      padding: 48px 24px 56px;
+      text-align: center;
+    }
+
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-logos img { height: 40px; }
+    .hero-logos .x-mark {
+      font-family: 'Share Tech', sans-serif;
+      font-size: 24px;
+      opacity: 0.5;
+    }
+
+    .hero h1 {
+      font-family: 'Share Tech', sans-serif;
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      opacity: 0.7;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      font-family: 'Share Tech', sans-serif;
+      font-size: 20px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ce-green);
+      display: inline-block;
+    }
+
+    .section { margin-bottom: 48px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 24px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--ce-green);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+      border-color: var(--ce-green);
+    }
+
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px;
+      background: #e8f5e9;
+    }
+
+    .card h3 {
+      font-family: 'Share Tech', sans-serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .card-tag {
+      display: inline-block;
+      margin-top: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: #e8f5e9;
+      color: var(--ce-green-dark);
+    }
+
+    .card-tag.doc { background: #e3f2fd; color: #1565c0; }
+    .card-tag.sheet { background: #e8f5e9; color: #2e7d32; }
+    .card-tag.internal { background: #fff3e0; color: #e65100; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .stat {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ce-green);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: var(--text-muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 32px 16px 40px; }
+      .hero-logos img { height: 30px; }
+      .container { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-logos">
+      <img src="/ce-logo.png" alt="ConnectEnergy">
+      <span class="x-mark">x</span>
+      <img src="/coreimpact-logo-white.png" alt="Coreimpact">
+    </div>
+    <h1>Project Hub</h1>
+    <p>Everything we've built for ConnectEnergy, all in one place.</p>
+  </div>
+
+  <div class="container">
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">9</div>
+        <div class="stat-label">Live Websites</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Google Docs</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1,278</div>
+        <div class="stat-label">CRM Contacts Synced</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">27</div>
+        <div class="stat-label">Case Studies</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Sales Tools</div>
+      <div class="grid">
+        <a href="https://ce-configurator.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#9889;</div>
+          <h3>Sales Configurator</h3>
+          <p>8-step face-to-face sales tool with real pricing, Google Solar roof analysis, CRM integration, and live Google reviews.</p>
+          <span class="card-tag">ce-configurator.vercel.app</span>
+        </a>
+        <a href="https://ce-lead-intel.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#128269;</div>
+          <h3>Lead Intel</h3>
+          <p>Property intelligence for Brett's calls. Raw roof data with generation scenarios at 20/30/40/50% capacity.</p>
+          <span class="card-tag">ce-lead-intel.vercel.app</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Client-Facing</div>
+      <div class="grid">
+        <a href="https://ce-case-studies.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#128218;</div>
+          <h3>Case Studies</h3>
+          <p>27 published case studies with matched Google reviews. Auto-generated from real install data.</p>
+          <span class="card-tag">ce-case-studies.vercel.app</span>
+        </a>
+        <a href="https://ce-growth-plan.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#128200;</div>
+          <h3>Growth Plan</h3>
+          <p>6-week growth roadmap. Hormozi-style organic strategy with database reactivation, SEO, and compound flywheel.</p>
+          <span class="card-tag">ce-growth-plan.vercel.app</span>
+        </a>
+        <a href="https://ce-seo-audit.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#128270;</div>
+          <h3>SEO Audit</h3>
+          <p>Full SEO audit of connectenergy.com.au with actionable recommendations and competitive analysis.</p>
+          <span class="card-tag">ce-seo-audit.vercel.app</span>
+        </a>
+        <a href="https://ce-seo-comparison.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#128202;</div>
+          <h3>SEO Comparison</h3>
+          <p>Competitive SEO comparison against other QLD solar installers.</p>
+          <span class="card-tag">ce-seo-comparison.vercel.app</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Operations</div>
+      <div class="grid">
+        <a href="https://ce-commissioning.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#128247;</div>
+          <h3>Commissioning Form</h3>
+          <p>On-site job photo upload with CRM client lookup, auto-fill job ID, and automatic pipeline stage update.</p>
+          <span class="card-tag">ce-commissioning.vercel.app</span>
+        </a>
+        <a href="https://ce-progress-report.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#128203;</div>
+          <h3>Progress Report</h3>
+          <p>Project summary and delivery status across all systems built for ConnectEnergy.</p>
+          <span class="card-tag">ce-progress-report.vercel.app</span>
+        </a>
+        <a href="https://ce-sam-brief.vercel.app" target="_blank" class="card">
+          <div class="card-icon">&#129302;</div>
+          <h3>Sam Brief</h3>
+          <p>Sam Watson AI agent overview. Covers the automated Energex + Formbay pipeline and email protocol.</p>
+          <span class="card-tag">ce-sam-brief.vercel.app</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Documents</div>
+      <div class="grid">
+        <a href="https://docs.google.com/spreadsheets/d/1BoZiW120MBOS_l5TCQtrJQtjkB4i6d08t_E_Xv1XCng/edit" target="_blank" class="card">
+          <div class="card-icon" style="background:#e8f5e9;">&#128196;</div>
+          <h3>Product Catalog</h3>
+          <p>Full product catalog with Brett's cost pricing, margins, and all SKUs. Source of truth for configurator.</p>
+          <span class="card-tag sheet">Google Sheet</span>
+        </a>
+        <a href="https://docs.google.com/document/d/1bY7zqWsXT4c3RWaydtW3UPTqS3H3W6z8YFbCkyceeZE/edit" target="_blank" class="card">
+          <div class="card-icon" style="background:#e3f2fd;">&#128221;</div>
+          <h3>Referral Campaign</h3>
+          <p>Referral campaign template with reward tiers, email copy, and internal notes for Brett.</p>
+          <span class="card-tag doc">Google Doc</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    ConnectEnergy x Coreimpact &middot; Built and maintained by Coreimpact &middot; June 2026
+  </footer>
+
+</body>
+</html>
