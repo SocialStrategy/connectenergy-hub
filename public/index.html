@@ -166,6 +166,7 @@
     .card-tag.doc { background: #e3f2fd; color: #1565c0; }
     .card-tag.sheet { background: #e8f5e9; color: #2e7d32; }
     .card-tag.internal { background: #fff3e0; color: #e65100; }
+    .card-tag.auto { background: #f3e5f5; color: #7b1fa2; }
 
     .stats {
       display: grid;
@@ -230,15 +231,19 @@
         <div class="stat-label">Live Websites</div>
       </div>
       <div class="stat">
-        <div class="stat-number">2</div>
+        <div class="stat-number">3</div>
         <div class="stat-label">Google Docs</div>
       </div>
       <div class="stat">
-        <div class="stat-number">1,278</div>
+        <div class="stat-number">1,379</div>
         <div class="stat-label">CRM Contacts Synced</div>
       </div>
       <div class="stat">
-        <div class="stat-number">27</div>
+        <div class="stat-number">1,321</div>
+        <div class="stat-label">Opportunities Tracked</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">34</div>
         <div class="stat-label">Case Studies</div>
       </div>
     </div>
@@ -249,7 +254,7 @@
         <a href="https://ce-configurator.vercel.app" target="_blank" class="card">
           <div class="card-icon">&#9889;</div>
           <h3>Sales Configurator</h3>
-          <p>8-step face-to-face sales tool with real pricing, Google Solar roof analysis, CRM integration, and live Google reviews.</p>
+          <p>8-step face-to-face sales tool with real pricing, Google Solar roof analysis, live Google reviews, and automatic CRM lead creation with estimate notes.</p>
           <span class="card-tag">ce-configurator.vercel.app</span>
         </a>
         <a href="https://ce-lead-intel.vercel.app" target="_blank" class="card">
@@ -267,7 +272,7 @@
         <a href="https://ce-case-studies.vercel.app" target="_blank" class="card">
           <div class="card-icon">&#128218;</div>
           <h3>Case Studies</h3>
-          <p>27 published case studies with matched Google reviews. Auto-generated from real install data.</p>
+          <p>34 published case studies with matched Google reviews. Auto-generated from real install data and commissioning photos.</p>
           <span class="card-tag">ce-case-studies.vercel.app</span>
         </a>
         <a href="https://ce-growth-plan.vercel.app" target="_blank" class="card">
@@ -316,6 +321,48 @@
     </div>
 
     <div class="section">
+      <div class="section-title">Automations &amp; AI</div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon" style="background:#f3e5f5;">&#129302;</div>
+          <h3>Sam Watson (AI Agent)</h3>
+          <p>Slack-based AI assistant monitoring Brett's inbox via MS365 Graph API. Auto-posts emails, enriches with CRM context, drafts replies, and runs a daily morning brief.</p>
+          <span class="card-tag auto">automation</span>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#f3e5f5;">&#9889;</div>
+          <h3>Energex &amp; Formbay Pipeline</h3>
+          <p>Production Playwright automation for grid applications (Energex Partners Portal) and rebate forms (Formbay). State machine with retry logic and GCS subscriber.</p>
+          <span class="card-tag auto">automation</span>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#f3e5f5;">&#128450;</div>
+          <h3>Master Database V2</h3>
+          <p>Centralized Neon Postgres database syncing 1,379 contacts, 1,321 opportunities, OpenSolar proposals, and email threads. Hourly sync 7am-7pm Brisbane.</p>
+          <span class="card-tag auto">automation</span>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#f3e5f5;">&#128246;</div>
+          <h3>Facebook Publisher</h3>
+          <p>Automated social posting pipeline. Parses case studies, selects hero images, generates Hormozi-style copy via Gemini, and publishes directly to the CE Facebook Page.</p>
+          <span class="card-tag auto">automation</span>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#f3e5f5;">&#128247;</div>
+          <h3>Commissioning Poller</h3>
+          <p>Polls GCS photo bucket every 30 minutes. Auto-generates case studies from uploads, processes forms with retry logic, and advances CRM pipeline stages.</p>
+          <span class="card-tag auto">automation</span>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#f3e5f5;">&#128232;</div>
+          <h3>Welcome Email Trigger</h3>
+          <p>Automatic welcome email sent to new sales opportunities. Fires on first sync of a new contact into the Master Database.</p>
+          <span class="card-tag auto">automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
       <div class="section-title">Documents</div>
       <div class="grid">
         <a href="https://docs.google.com/spreadsheets/d/1BoZiW120MBOS_l5TCQtrJQtjkB4i6d08t_E_Xv1XCng/edit" target="_blank" class="card">
@@ -330,13 +377,19 @@
           <p>Referral campaign template with reward tiers, email copy, and internal notes for Brett.</p>
           <span class="card-tag doc">Google Doc</span>
         </a>
+        <a href="https://docs.google.com/spreadsheets/d/1Q567DgDkkGDyLF_yWUY_ax6hNEYiFNYEjfKHDwPTyjs/edit" target="_blank" class="card">
+          <div class="card-icon" style="background:#e8f5e9;">&#128196;</div>
+          <h3>Growth Action Plan</h3>
+          <p>6-week action plan spreadsheet with database reactivation steps, weekly strategy, and progress tracking.</p>
+          <span class="card-tag sheet">Google Sheet</span>
+        </a>
       </div>
     </div>
 
   </div>
 
   <footer>
-    ConnectEnergy x Coreimpact &middot; Built and maintained by Coreimpact &middot; June 2026
+    ConnectEnergy x Coreimpact &middot; Built and maintained by Coreimpact &middot; July 2026
   </footer>
 
 </body>
